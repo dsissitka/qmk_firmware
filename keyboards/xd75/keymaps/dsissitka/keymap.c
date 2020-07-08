@@ -10,17 +10,16 @@ enum xd75_keycodes {
 enum xd75_layers {
     _DEFAULT,
     _GAMING,
-    _NAV,
     _SYMBOL
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DEFAULT] = {
-        { _______, KC_1,    KC_2,    KC_3,    KC_4,     KC_5,   KC_MPRV,     KC_MPLY, KC_MNXT,     KC_6,   KC_7,     KC_8,    KC_9,    KC_0,    _______ },
-        { KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,   _______,     _______, _______,     KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_BSPC },
-        { KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,     KC_G,   _______,     _______, _______,     KC_H,   KC_J,     KC_K,    KC_L,    KC_SCLN, KC_ENT  },
-        { KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,   _______,     _______, _______,     KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
-        { KC_LEAD, KC_LALT, KC_LCTL, KC_LGUI, MO(_NAV), KC_SPC, MO(_SYMBOL), GAMING,  MO(_SYMBOL), KC_SPC, MO(_NAV), KC_RGUI, KC_RCTL, KC_RALT, KC_LEAD }
+        { _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_MPRV,     KC_MPLY, KC_MNXT,     KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    _______ },
+        { KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   _______,     _______, _______,     KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC },
+        { KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   _______,     _______, _______,     KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT  },
+        { KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   _______,     _______, _______,     KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
+        { KC_LEAD, KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_SPC, MO(_SYMBOL), GAMING,  MO(_SYMBOL), KC_SPC, KC_RGUI, KC_RSFT, KC_RCTL, KC_RALT, KC_LEAD }
     },
 
     [_GAMING] = {
@@ -31,20 +30,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         { _______, _______, _______, _______, _______, _______, KC_LCTRL, DEFAULT, _______, _______, _______, _______, _______, _______, _______ }
     },
 
-    [_NAV] = {
-        { _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,  RESET,   _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______ },
-        { _______, KC_F11,  KC_F12,  _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______,  _______, _______ },
-        { _______, KC_INS,  KC_END,  KC_PGUP, KC_PGDN, KC_HOME, _______,  _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_DEL,  _______ },
-        { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______,  _______, _______ },
-        { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______,  _______, _______ }
-    },
 
     [_SYMBOL] = {
-        { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______ },
-        { _______, KC_HASH, KC_GRV,  KC_LBRC, KC_AMPR, _______, _______,  _______, _______, _______, KC_DLR,  KC_RBRC, KC_PLUS, KC_TILD, _______ },
-        { _______, KC_UNDS, KC_LCBR, KC_QUOT, KC_LPRN, _______, _______,  _______, _______, _______, KC_RPRN, KC_EQL,  KC_RCBR, KC_ASTR, _______ },
-        { _______, KC_PIPE, KC_PERC, KC_BSLS, KC_MINS, _______, _______,  _______, _______, _______, KC_DQT,  KC_AT,   KC_CIRC, KC_EXLM, _______ },
-        { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______ }
+        { _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, RESET,   _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______ },
+        { _______, KC_F11,  KC_F12,  KC_MINS, KC_GRV,  _______, _______, _______, _______, _______, KC_PLUS, KC_LBRC, KC_RBRC,  KC_TILD, _______ },
+        { _______, KC_LCBR, KC_RCBR, KC_EQL,  KC_QUOT, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_DEL,  _______ },
+        { _______, KC_DQT,  KC_BSLS, KC_PIPE, KC_UNDS, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_INS,  _______ },
+        { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______ }
     }
 };
 
